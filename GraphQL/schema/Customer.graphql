@@ -1,0 +1,15 @@
+
+# Customer User Object
+type Customer implements User, Node {
+  id: ID!
+  internalId: ID!
+
+  # User Contact Information
+  contact: Contact
+
+  # Authorization Groups
+  groups: [ String! ]
+
+  # Sites (i.e. Addresses) the customer has service
+  sites: [ Site ]
+}

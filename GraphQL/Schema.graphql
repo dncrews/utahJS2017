@@ -1,0 +1,8 @@
+
+type Customer implements Person {
+  id: ID!
+  contact: Contact!
+  site: [ Site ]
+  salesRep: [ Employee ]
+
+}
