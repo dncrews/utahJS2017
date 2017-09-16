@@ -1,0 +1,52 @@
+
+type Address {
+  street1: String!
+  street2: String
+  city: String!
+  state: String!
+  postalCode: String!
+  country: String!
+  timezone: String!
+  geolocation: Geolocation!
+}
+
+type Contact {
+  givenName: String!
+  familyName: String!
+  fullName: String!
+  email: String!
+  phone: String!
+  address: Address
+}
+
+type Customer implements Person {
+  id: ID!
+  contact: Contact!
+  sites: [ Site ]
+  salesRep: Employee
+  salesPerson: Employee @deprecated(reason: "Please use salesRep instead.")
+}
+
+type Employee implements Person {
+  badgeId: String!
+  contact: Contact!
+  customers(state:String): [ Customer ]
+}
+
+type Geolocation {
+  latitude: Float!
+  longitude: Float!
+}
+
+interface Person {
+  contact: Contact!
+}
+
+type Query {
+  customer(id: ID!): Customer
+}
+
+type Site {
+  id: ID!
+  address: Address
+}
