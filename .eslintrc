@@ -3,6 +3,7 @@
     "vstg"
   ],
   "rules": {
-    "no-magic-numbers": "off"
+    "no-magic-numbers": "off",
+    "no-console": "off"
   }
 }
