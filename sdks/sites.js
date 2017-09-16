@@ -4,6 +4,8 @@ const customerSites = {};
 const sites = {};
 
 exports.get = (id) => {
+  console.info(`loading site ${ id }`);
+
   if (!sites[id]) {
     const address = shared.address();
 
@@ -17,6 +19,8 @@ exports.get = (id) => {
 };
 
 exports.query = ({ customerId }) => {
+  console.info(`loading sites for customer ${ customerId }`);
+
   if (customerSites[customerId]) {
     return Promise.resolve(customerSites[customerId]);
   }

@@ -33,6 +33,8 @@ const generate = ({
 };
 
 exports.get = (id) => {
+  console.info(`loading customer: ${ id }`);
+
   return Promise.resolve(generate({ id }));
 };
 
@@ -65,9 +67,12 @@ exports.query = ({ repId: badgeId, state }) => {
   let repCustomers = byRep(badgeId);
 
   if (state) {
+    console.info(`loading customers for ${ badgeId } in ${ state }`);
     repCustomers = repCustomers.filter((customer) => {
       return customer.address.state === state;
     });
+  } else {
+    console.info(`loading customers for ${ badgeId }`);
   }
 
   return Promise.resolve(repCustomers);

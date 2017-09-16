@@ -4,6 +4,7 @@ const shared = require('./shared');
 const salesReps = {};
 
 exports.get = (badgeId) => {
+  console.info(`loading sales rep ${ badgeId }`);
   if (!salesReps[badgeId]) {
     const address = shared.address();
     const contact = shared.contact();
